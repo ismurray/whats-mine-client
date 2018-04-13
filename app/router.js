@@ -13,6 +13,7 @@ Router.map(function () {
   this.route('users')
   this.route('items', function () {
     this.route('item', {path: '/:item_id'})
+    this.route('new')
   })
 })
 
