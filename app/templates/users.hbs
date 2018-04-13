@@ -2,8 +2,13 @@
 
 <ul>
 
-  {{render-all-users users=model}}
 {{#each model as |user|}}
-  <li>{{user.email}}</li>
+  <li>{{user.email}}
+    <ul>
+      {{#each user.items as |item|}}
+      <li>Item: [{{item.name}}] Value: {{item.value}}</li>
+      {{/each}}
+    </ul>
+  </li>
 {{/each}}
 </ul>
