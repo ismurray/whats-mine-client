@@ -11,6 +11,9 @@ export default Route.extend({
       item.destroyRecord()
         .then(() => this.transitionTo('items'))
         .catch(console.error)
+    },
+    editItemView (item) {
+      this.transitionTo('/items/' + item.get('id') + '/edit')
     }
   }
 })
