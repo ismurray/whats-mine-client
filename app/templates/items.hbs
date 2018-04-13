@@ -1,0 +1,11 @@
+<h2>My Items</h2>
+
+<ul>
+
+{{#each model as |item|}}
+  <h4>Item Name: {{item.name}}</h4>
+  <ul>
+    <li>Value: {{item.value}}</li>
+  </ul>
+{{/each}}
+</ul>
