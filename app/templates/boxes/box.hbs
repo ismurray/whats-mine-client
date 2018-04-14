@@ -2,4 +2,10 @@
 <h2>Box Details:</h2>
 {{#link-to 'boxes.edit' model.id tagName='button'}}Edit Box<{{/link-to}}
 <h4>Box Name: {{model.name}}</h4>
+<h5>Items:</h5>
+<ul>
+  {{#each model.items as |item|}}
+    <li>{{#link-to 'items.item' item}}{{item.name}}{{/link-to}}</li>
+  {{/each}}
+</ul>
 <button {{action 'deleteBox' model}}>Delete</button>

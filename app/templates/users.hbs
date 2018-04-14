@@ -5,8 +5,14 @@
 {{#each model as |user|}}
   <li>{{user.email}}
     <ul>
-      {{#each user.items as |item|}}
-      <li>Item: [{{item.name}}] Value: {{item.value}}</li>
+      {{#each user.boxes as |box|}}
+        <li>Box: {{box.name}}</li>
+        {{!-- <p>{{box.items}}</p> --}}
+        <ul>
+          {{#each box.items as |item|}}
+          <li>Item: [{{item.name}}] Value: {{item.value}}</li>
+          {{/each}}
+        </ul>
       {{/each}}
     </ul>
   </li>
