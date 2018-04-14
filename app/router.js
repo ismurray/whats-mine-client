@@ -13,7 +13,6 @@ Router.map(function () {
   this.route('users')
   this.route('items', function () {
     this.route('item', {path: '/:item_id'})
-    this.route('new')
     this.route('edit', {path: '/:item_id/edit'})
   })
   this.route('boxes', function () {

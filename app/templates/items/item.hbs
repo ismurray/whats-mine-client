@@ -1,7 +1,7 @@
-{{!-- {{#link-to 'items'}}Back to My Items{{/link-to}} --}}
-<p>{{#link-to 'boxes.box' model.box}}Back to {{model.box.name}}{{/link-to}}</p>
+{{!-- {{#link-to "items"}}Back to My Items{{/link-to}} --}}
+<p>{{#link-to "boxes.box" model.box}}Back to {{model.box.name}}{{/link-to}}</p>
 <h2>Item Details:</h2>
-{{#link-to 'items.edit' model.id tagName='button'}}Edit Item<{{/link-to}}
+{{#link-to "items.edit" model.id tagName="button"}}Edit Item<{{/link-to}}
 <h4>Item Name: {{model.name}}</h4>
 <h4>Value: {{model.value}}</h4>
-<button {{action 'deleteItem' model}}>Delete</button>
+<button {{action "deleteItem" model}}>Delete</button>

@@ -1,6 +1,6 @@
-{{!-- {{#link-to 'items'}}Back to My Items{{/link-to}} --}}
+{{!-- {{#link-to "items"}}Back to My Items{{/link-to}} --}}
 <h2>Item Details:</h2>
-<button {{action 'updateItem' model}}>Save Changes</button>
-{{#link-to 'items.item' model.id tagName='button'}} Cancel{{/link-to}}
-<h4>Item Name: {{input placeholder='Item Name' value=model.name}}</h4>
-<h4>Value: {{input placeholder='No Value Given' value=model.value type="number"}}</h4>
+<button {{action "updateItem" model}}>Save Changes</button>
+{{#link-to "items.item" model.id tagName="button"}} Cancel{{/link-to}}
+<h4>Item Name: {{input placeholder="Item Name" value=model.name}}</h4>
+<h4>Value: {{input placeholder="No Value Given" value=model.value type="number"}}</h4>
