@@ -1,0 +1,8 @@
+<h2>My Boxes</h2>
+{{#link-to 'boxes.new'}}Create a new Box{{/link-to}}
+<ul>
+
+{{#each model as |box|}}
+  <h4>{{#link-to 'boxes.box' box}}Box Name: {{box.name}}{{/link-to}}</h4>
+{{/each}}
+</ul>

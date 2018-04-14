@@ -1,0 +1,5 @@
+{{#link-to 'boxes'}}Back to My Boxes{{/link-to}}
+<h2>Box Details:</h2>
+<button {{action 'updateBox' model}}>Save Changes</button>
+{{#link-to 'boxes.box' model.id tagName='button'}} Cancel{{/link-to}}
+<h4>Box Name: {{input placeholder='Box Name' value=model.name}}</h4>

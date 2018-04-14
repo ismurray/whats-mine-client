@@ -1,0 +1,5 @@
+{{#link-to 'boxes'}}Back to My Boxes{{/link-to}}
+<h2>Box Details:</h2>
+{{#link-to 'boxes.edit' model.id tagName='button'}}Edit Box<{{/link-to}}
+<h4>Box Name: {{model.name}}</h4>
+<button {{action 'deleteBox' model}}>Delete</button>

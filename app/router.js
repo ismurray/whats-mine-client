@@ -16,6 +16,11 @@ Router.map(function () {
     this.route('new')
     this.route('edit', {path: '/:item_id/edit'})
   })
+  this.route('boxes', function () {
+    this.route('box', {path: '/:box_id'})
+    this.route('new')
+    this.route('edit', {path: '/:box_id/edit'})
+  })
 })
 
 export default Router
