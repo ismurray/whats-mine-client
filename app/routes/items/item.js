@@ -8,8 +8,9 @@ export default Route.extend({
   actions: {
     deleteItem (item) {
       console.log('delete', item.get('name'))
+      const box = item.get('box')
       item.destroyRecord()
-        .then(() => this.transitionTo('items'))
+        .then(() => this.transitionTo('boxes.box', box))
         .catch(console.error)
     },
     editItemView (item) {

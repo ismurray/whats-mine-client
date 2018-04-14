@@ -18,6 +18,7 @@ Router.map(function () {
   })
   this.route('boxes', function () {
     this.route('box', {path: '/:box_id'})
+    this.route('new-item', {path: '/:box_id/new-item'})
     this.route('new')
     this.route('edit', {path: '/:box_id/edit'})
   })
