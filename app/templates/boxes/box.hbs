@@ -2,6 +2,12 @@
 <h2>Box Details:</h2>
 {{#link-to "boxes.edit" model.id tagName="button"}}Edit Box<{{/link-to}}
 <h4>Box Name: {{model.name}}</h4>
+<h5>Users:</h5>
+<ul>
+  {{#each model.users as |user|}}
+    <li>{{user.email}}</li>
+  {{/each}}
+</ul>
 <h5>Items:</h5>
 {{#link-to "boxes.new-item" model}}Create a new Item{{/link-to}}
 <ul>
