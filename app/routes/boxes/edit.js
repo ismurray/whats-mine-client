@@ -9,7 +9,13 @@ export default Route.extend({
   actions: {
     updateBox (box) {
       box.save()
-      .then((box) => this.transitionTo('/boxes/' + box.get('id')))
+        .then((box) => this.transitionTo('/boxes/' + box.get('id')))
+    },
+    createUsersBox (usersBoxPojo) {
+      console.log('in the route babyyy', usersBoxPojo)
+      const usersBox = this.get('store').createRecord('users-box', usersBoxPojo)
+      usersBox.save()
+        .then((usersBox) => this.transitionTo('/boxes/' + usersBox.get('box_id')))
     }
   }
 })

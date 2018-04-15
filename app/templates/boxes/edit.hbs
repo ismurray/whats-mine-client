@@ -1,5 +1,15 @@
 {{#link-to "boxes"}}Back to My Boxes{{/link-to}}
 <h2>Box Details:</h2>
-<button {{action "updateBox" model}}>Save Changes</button>
-{{#link-to "boxes.box" model.id tagName="button"}} Cancel{{/link-to}}
+
 <h4>Box Name: {{input placeholder="Box Name" value=model.name}}</h4>
+<button {{action "updateBox" model}}>Save Name</button>
+{{#link-to "boxes.box" model.id tagName="button"}} Cancel{{/link-to}}
+<h5>Users:</h5>
+<ul>
+  {{#each model.users as |user|}}
+    <li>{{user.email}}</li>
+  {{/each}}
+</ul>
+<h5>Share this Box with another User:</h5>
+{{invite-users-box box=model
+                   addUserToBox='createUsersBox'}}
