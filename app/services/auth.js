@@ -7,6 +7,18 @@ export default Service.extend({
   credentials: storageFor('auth'),
   isAuthenticated: bool('credentials.token'),
 
+  createPermission (usersBoxPojo) {
+    return this.get('ajax').post('/users_boxes', {
+      data: {
+        users_box: {
+          user_id: usersBoxPojo.user_id,
+          box_id: usersBoxPojo.box_id,
+          write_access: usersBoxPojo.writeAccess
+        }
+      }
+    })
+  },
+
   signUp (credentials) {
     return this.get('ajax').post('/sign-up', {
       data: {

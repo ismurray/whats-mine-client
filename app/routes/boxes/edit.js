@@ -1,6 +1,9 @@
 import Route from '@ember/routing/route'
+import { inject as service } from '@ember/service'
 
 export default Route.extend({
+  auth: service(),
+
   model: function (params) {
     const id = params.box_id
     console.log('id is ', id)
@@ -22,6 +25,11 @@ export default Route.extend({
     },
     deletePermission (permission) {
       permission.destroyRecord()
+    },
+    createPermission (usersBoxPojo) {
+      const boxId = usersBoxPojo.box_id
+      return this.get('auth').createPermission(usersBoxPojo)
+              .then(() => this.store.findRecord('box', boxId, { reload: true }))
     }
   }
 })
