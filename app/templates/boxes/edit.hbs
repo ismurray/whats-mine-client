@@ -1,13 +1,19 @@
 {{#link-to "boxes"}}Back to My Boxes{{/link-to}}
+<p>{{#link-to "boxes.box" model.id}} Back to {{model.name}}{{/link-to}}</p>
 <h2>Box Details:</h2>
 
 <h4>Box Name: {{input placeholder="Box Name" value=model.name}}</h4>
 <button {{action "updateBox" model}}>Save Name</button>
 {{#link-to "boxes.box" model.id tagName="button"}} Cancel{{/link-to}}
-<h5>Users:</h5>
+<h5>Users who are sharing this Box:</h5>
 <ul>
-  {{#each model.users as |user|}}
-    <li>{{user.email}}</li>
+  {{#each model.permissions as |permission|}}
+    <li>{{permission.user.email}}
+      ({{input type="checkbox" name="writeAccess" checked=permission.writeAccess}}
+      Write Access)
+      <button {{action "updatePermission" permission}}>Save Permission</button>
+      <button {{action "deletePermission" permission}}>Delete Permission</button>
+    </li>
   {{/each}}
 </ul>
 <h5>Share this Box with another User:</h5>

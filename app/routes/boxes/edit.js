@@ -16,6 +16,12 @@ export default Route.extend({
       const usersBox = this.get('store').createRecord('users-box', usersBoxPojo)
       usersBox.save()
         .then((usersBox) => this.transitionTo('/boxes/' + usersBox.get('box_id')))
+    },
+    updatePermission (permission) {
+      permission.save()
+    },
+    deletePermission (permission) {
+      permission.destroyRecord()
     }
   }
 })

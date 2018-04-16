@@ -1,7 +1,7 @@
 <form {{action "addUserToBox" box on="submit"}}>
   {{input placeholder="Enter other User's ID" value=newUsersBox.user_id}}
   <div>
-     {{input type="checkbox" name="writeAccess" checked=newUsersBox.write_access}}
+     {{input type="checkbox" name="writeAccess" checked=newUsersBox.writeAccess}}
      Give Write Access (Added User will have Read-Only Access if unchecked)
   </div>
 
