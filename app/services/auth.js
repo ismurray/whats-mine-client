@@ -20,12 +20,14 @@ export default Service.extend({
   },
 
   signUp (credentials) {
+    console.log('credentials are', credentials)
     return this.get('ajax').post('/sign-up', {
       data: {
         credentials: {
           email: credentials.email,
           password: credentials.password,
-          password_confirmation: credentials.passwordConfirmation
+          password_confirmation: credentials.passwordConfirmation,
+          phone: credentials.phone
         }
       }
     })
@@ -44,6 +46,8 @@ export default Service.extend({
       this.get('credentials').set('id', result.user.id)
       this.get('credentials').set('email', result.user.email)
       this.get('credentials').set('token', result.user.token)
+      this.get('credentials').set('phone', result.user.phone)
+      console.log(this.get('credentials.phone'))
     })
   },
 

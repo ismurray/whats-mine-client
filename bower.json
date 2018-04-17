@@ -1,0 +1,6 @@
+{
+  "name": "whats-mine-client",
+  "dependencies": {
+    "jquery-mask-library": "0.0.1"
+  }
+}
