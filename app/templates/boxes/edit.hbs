@@ -1,21 +1,25 @@
 {{#link-to "boxes"}}Back to My Boxes{{/link-to}}
 <p>{{#link-to "boxes.box" model.id}} Back to {{model.name}}{{/link-to}}</p>
-<h2>Box Details:</h2>
+{{#if model.editable}}
+  <h2>Box Details:</h2>
 
-<h4>Box Name: {{input placeholder="Box Name" value=model.name}}</h4>
-<button {{action "updateBox" model}}>Save Name</button>
-{{#link-to "boxes.box" model.id tagName="button"}} Cancel{{/link-to}}
-<h5>Users who are sharing this Box:</h5>
-<ul>
-  {{#each model.permissions as |permission|}}
-    <li>{{permission.user.email}}
-      ({{input type="checkbox" name="writeAccess" checked=permission.writeAccess}}
-      Write Access)
-      <button {{action "updatePermission" permission}}>Save Permission</button>
-      <button {{action "deletePermission" permission}}>Delete Permission</button>
-    </li>
-  {{/each}}
-</ul>
-<h5>Share this Box with another User:</h5>
-{{invite-users-box box=model
-                   addUserToBox='createPermission'}}
+  <h4>Box Name: {{input placeholder="Box Name" value=model.name}}</h4>
+  <button {{action "updateBox" model}}>Save Name</button>
+  {{#link-to "boxes.box" model.id tagName="button"}} Cancel{{/link-to}}
+  <h5>Users who are sharing this Box:</h5>
+  <ul>
+    {{#each model.permissions as |permission|}}
+      <li>{{permission.user.email}}
+        ({{input type="checkbox" name="writeAccess" checked=permission.writeAccess}}
+        Write Access)
+        <button {{action "updatePermission" permission}}>Save Permission</button>
+        <button {{action "deletePermission" permission}}>Delete Permission</button>
+      </li>
+    {{/each}}
+  </ul>
+  <h5>Share this Box with another User:</h5>
+  {{invite-users-box box=model
+                     addUserToBox='createPermission'}}
+{{else}}
+<h2>You must have write access for this Box to edit it! Ask an authorized Box member for permission to edit this Box.</h2>
+{{/if}}

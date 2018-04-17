@@ -1,6 +1,8 @@
 {{#link-to "boxes"}}Back to My Boxes{{/link-to}}
 <h2>Box Details:</h2>
+{{#if model.editable}}
 {{#link-to "boxes.edit" model.id tagName="button"}}Edit Box<{{/link-to}}
+{{/if}}
 <h4>Box Name: {{model.name}}</h4>
 <h5>Users:</h5>
 <ul>
