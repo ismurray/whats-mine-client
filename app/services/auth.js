@@ -11,7 +11,7 @@ export default Service.extend({
     return this.get('ajax').post('/users_boxes', {
       data: {
         users_box: {
-          user_id: usersBoxPojo.user_id,
+          email: usersBoxPojo.email,
           box_id: usersBoxPojo.box_id,
           write_access: usersBoxPojo.writeAccess
         }

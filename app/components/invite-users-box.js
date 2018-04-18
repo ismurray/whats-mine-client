@@ -3,7 +3,7 @@ import Component from '@ember/component'
 export default Component.extend({
   didInsertElement () {
     this.set('newUsersBox', {
-      user_id: null,
+      email: null,
       box_id: null,
       writeAccess: false
     })
@@ -11,7 +11,7 @@ export default Component.extend({
   actions: {
     addUserToBox (box) {
       console.log('writeAccess is', this.get('newUsersBox.writeAccess'))
-      console.log('user_id is', this.get('newUsersBox.user_id'))
+      console.log('email is', this.get('newUsersBox.email'))
       this.set('newUsersBox.box_id', box.get('id'))
       console.log('box_id is', this.get('newUsersBox.box_id'))
       this.sendAction('addUserToBox', this.get('newUsersBox'))
