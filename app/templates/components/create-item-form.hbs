@@ -1,5 +1,5 @@
 <h4>Item Name: {{model.name}}</h4>
 <h4>Value: {{model.value}}</h4>
-{{input placeholder="Item Name" value=newItem.name}}
+{{input placeholder="Item Name" value=newItem.name maxlength=50}}
 {{input placeholder="Item Value" value=newItem.value type="number"}}
 <button{{action "createItem" box}}>Save</button>

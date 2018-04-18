@@ -3,7 +3,7 @@
 {{#if model.editable}}
   <h2>Box Details:</h2>
 
-  <h4>Box Name: {{input placeholder="Box Name" value=model.name}}</h4>
+  <h4>Box Name: {{input placeholder="Box Name" value=model.name maxlength=50}}</h4>
   <button {{action "updateBox" model}}>Save Name</button>
   {{#link-to "boxes.box" model.id tagName="button"}} Cancel{{/link-to}}
   <h5>Users who are sharing this Box:</h5>
