@@ -16,11 +16,15 @@ export default Route.extend({
         .then(() => this.transitionTo('boxes.box', box))
         .catch(console.error)
     },
-    sendMessage (permission) {
-      console.log('clicked message button', permission)
+    sendMessage (item, permission) {
+      console.log('clicked message button', item)
       const data = {
-        user_id: permission.get('user.id'),
-        body: 'Hi hello'
+        twilio: {
+          user_id: permission.get('user.id'),
+          box_id: item.get('box.id'),
+          item_id: item.get('id'),
+          body: 'Hi hello'
+        }
       }
       this.get('auth').twilioMessage(data)
     }

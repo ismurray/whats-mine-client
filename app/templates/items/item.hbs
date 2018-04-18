@@ -7,7 +7,10 @@
 <h4>Value: {{model.value}}</h4>
 <h5>Users who are sharing this Item:</h5>
 {{#each model.box.permissions as |permission|}}
-  <li><button {{action "sendMessage" permission}}>Send Message</button>
+  <li>
+    {{#if model.box.editable}}
+    <button {{action "sendMessage" model permission}}>Send Message</button>
+    {{/if}}
     {{permission.user.email}}
     ({{input type="checkbox" name="writeAccess" disabled=true checked=permission.writeAccess}}
     Write Access)
