@@ -6,17 +6,26 @@
 <h4>Box Name: {{model.name}}</h4>
 <h5>Users:</h5>
 <ul>
-  {{#each model.users as |user|}}
-    <li>{{user.email}}</li>
+  {{#each model.permissions as |permission|}}
+    <li>
+      {{permission.user.email}}
+      ({{input type="checkbox" name="writeAccess" disabled=true checked=permission.writeAccess}}
+      Write Access)
+    </li>
   {{/each}}
 </ul>
 <h5>Items:</h5>
+{{#if model.editable}}
 {{#link-to "boxes.new-item" model}}Create a new Item{{/link-to}}
+{{/if}}
 <ul>
   {{#each model.items as |item|}}
     <li>{{#link-to "items.item" item}}{{item.name}}{{/link-to}}</li>
   {{/each}}
 </ul>
-<button {{action "deleteBox" model}}>Delete</button>
-
+{{#if model.editable}}
+<button {{action "deleteBox" model}}>Delete this Box</button>
+{{else}}
+<button {{action "deleteBox" model}}>Remove this Box from your list</button>
+{{/if}}
 {{outlet}}

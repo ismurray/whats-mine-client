@@ -1,4 +1,8 @@
 {{#link-to "boxes.box" model}}Back to {{model.name}}{{/link-to}}
+{{#if model.editable}}
 <h2>New Item:</h2>
 {{create-item-form box=model
                    createItem="createNewItem"}}
+{{else}}
+<h2>You must have write access for this Box to create Items in it! Ask an authorized Box member for permission to create Items in this Box.</h2>
+{{/if}}
