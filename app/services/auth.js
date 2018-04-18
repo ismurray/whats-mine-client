@@ -62,6 +62,16 @@ export default Service.extend({
     })
   },
 
+  changePhone (data) {
+    return this.get('ajax').patch(`/users/${data.userId}`, {
+      data: {
+        user: {
+          phone: data.phone
+        }
+      }
+    })
+  },
+
   signOut () {
     return this.get('ajax').del(`/sign-out`)
     .finally(() => this.get('credentials').reset())

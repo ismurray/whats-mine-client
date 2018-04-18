@@ -1,0 +1,14 @@
+<div class="form-group">
+  <label for="phone">Phone Number</label>
+  {{phone-number id="phone"
+                 placeholder="Phone Number"
+                 phone_number=phone}}
+</div>
+
+<button type="submit" class="btn btn-primary" {{action "submit"}}>
+  Update Phone Number
+</button>
+
+<button class="btn btn-default" {{action "reset"}}>
+  Cancel
+</button>
