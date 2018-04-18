@@ -2,6 +2,14 @@
 <p>{{#link-to "boxes.box" model.box}}Back to {{model.box.name}}{{/link-to}}</p>
 <h2>Item Details:</h2>
 {{#link-to "items.edit" model.id tagName="button"}}Edit Item<{{/link-to}}
+<button {{action "deleteItem" model}}>Delete Item</button>
 <h4>Item Name: {{model.name}}</h4>
 <h4>Value: {{model.value}}</h4>
-<button {{action "deleteItem" model}}>Delete</button>
+<h5>Users who are sharing this Item:</h5>
+{{#each model.box.permissions as |permission|}}
+  <li><button {{action "sendMessage" permission}}>Send Message</button>
+    {{permission.user.email}}
+    ({{input type="checkbox" name="writeAccess" disabled=true checked=permission.writeAccess}}
+    Write Access)
+  </li>
+{{/each}}

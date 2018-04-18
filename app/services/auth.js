@@ -72,6 +72,18 @@ export default Service.extend({
     })
   },
 
+  twilioMessage (data) {
+    console.log('data is ', data)
+    return this.get('ajax').post(`/twilio/text`, {
+      data: {
+        twilio: {
+          user_id: data.user_id,
+          body: data.body
+        }
+      }
+    })
+  },
+
   signOut () {
     return this.get('ajax').del(`/sign-out`)
     .finally(() => this.get('credentials').reset())
