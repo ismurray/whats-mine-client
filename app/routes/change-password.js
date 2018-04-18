@@ -8,38 +8,45 @@ export default Route.extend({
 
   model () {
     return RSVP.Promise.resolve({
-      phone: this.get('auth.credentials.phone')
+      user: this.get('auth.credentials'),
+      passwords: {}
     })
   },
 
   actions: {
     updatePhone (newPhone) {
       console.log('in the route', newPhone)
-      const data = {
-        phone: newPhone,
-        userId: this.get('auth.credentials.id')
+      // make sure user entered a new number that is proper length and has no
+      // underscores (which the phone-number add-on replaces empty spaces with)
+      if (newPhone.split('_').length === 1 &&
+          newPhone !== this.get('auth.credentials.phone') &&
+          newPhone.length === 12) {
+        const data = {
+          phone: newPhone,
+          userId: this.get('auth.credentials.id')
+        }
+        this.get('auth').changePhone(data)
+          .then((result) => {
+            this.get('auth.credentials').set('phone', result.user.phone)
+          })
+          .then(() => {
+            this.get('flashMessages')
+            .success('Successfully changed your phone number!')
+          })
+          .catch(() => {
+            this.get('flashMessages')
+            .danger('There was a problem. Please try again.')
+          })
+      } else if (newPhone === this.get('auth.credentials.phone')) {
+        this.get('flashMessages')
+        .danger('You must enter a new number')
+      } else {
+        this.get('flashMessages')
+        .danger('You must enter a full phone number.')
       }
-      console.log('data is ', data)
-      this.get('auth').changePhone(data)
-        // .then(() => this.get('auth').signOut())
-        // .then(() => this.transitionTo('sign-in'))
-        .then((res) => {
-          this.set('auth.credentials.phone', res.user.phone)
-          console.log(this.get('auth.credentials.phone'))
-          console.log('res is', res)
-          return res
-        })
-        .then(() => {
-          this.get('flashMessages')
-          .success('Successfully changed your phone number!')
-        })
-        .then(() => {
-          this.get('flashMessages').warning('You have been signed out.')
-        })
-        .catch(() => {
-          this.get('flashMessages')
-          .danger('There was a problem. Please try again.')
-        })
+    },
+    cancelChanges () {
+      this.transitionTo('application')
     },
     changePassword (passwords) {
       if (passwords.next === passwords.confirmNext) {
