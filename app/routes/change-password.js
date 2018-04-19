@@ -19,9 +19,7 @@ export default Route.extend({
       // make sure user entered a new number that is proper length and has no
       // underscores (which the phone-number add-on replaces empty spaces with)
       // debugger
-      if (newPhone.split('_').length === 1 &&
-      //     newPhone !== this.get('auth.credentials.phone') &&
-          newPhone.length === 12) {
+      if (newPhone.split('_').length === 1 && newPhone.length === 12) {
         const data = {
           phone: newPhone,
           userId: this.get('auth.credentials.id')
@@ -31,27 +29,16 @@ export default Route.extend({
             this.get('auth.credentials').set('phone', result.user.phone)
           })
           .then(() => {
-            this.get('flashMessages')
-            .success('Successfully changed your phone number!')
+            this.toast.success('Phone number saved', 'Success', {preventDuplicates: false})
           })
           .catch(() => {
-            this.get('flashMessages')
-            .danger('There was a problem. Please try again.')
+            this.toast.error('There was a problem. Please try again.', 'Error', {preventDuplicates: false})
             this.get('model').rollbackAttributes()
-            console.log('first catch', this.get('model'))
           })
-        // },
-      // } else if (newPhone === this.get('auth.credentials.phone')) {
-      //   debugger
-      //   this.get('flashMessages')
-      //   .danger('You must enter a new number')
       } else {
-        this.get('flashMessages')
-        .danger('You must enter a full phone number.')
-        .then(() => {
-          this.get('model').rollbackAttributes()
-          console.log('first catch', this.get('model'))
-        })
+        this.toast.error('You must enter a full phone number.', 'Error', {preventDuplicates: false})
+        this.get('model').rollbackAttributes()
+        console.log('first catch', this.get('model'))
       }
     },
     cancelChanges () {
@@ -63,19 +50,16 @@ export default Route.extend({
         .then(() => this.get('auth').signOut())
         .then(() => this.transitionTo('sign-in'))
         .then(() => {
-          this.get('flashMessages')
-          .success('Successfully changed your password!')
+          this.toast.success('Changed your password!', 'Success', {preventDuplicates: false})
         })
         .then(() => {
-          this.get('flashMessages').warning('You have been signed out.')
+          this.toast.info('You have been signed out.', 'Status', {preventDuplicates: false})
         })
         .catch(() => {
-          this.get('flashMessages')
-          .danger('There was a problem. Please try again.')
+          this.toast.error('There was a problem. Please try again.', 'Error', {preventDuplicates: false})
         })
       } else {
-        this.get('flashMessages')
-        .danger('Your new passwords must match.')
+        this.toast.warning('Your new passwords must match.', 'Error', {preventDuplicates: false})
       }
     }
   }
