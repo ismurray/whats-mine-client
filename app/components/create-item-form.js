@@ -3,7 +3,7 @@ import Component from '@ember/component'
 export default Component.extend({
   didInsertElement () {
     this.set('newItem', {
-      name: '',
+      name: null,
       value: null
     })
   },
