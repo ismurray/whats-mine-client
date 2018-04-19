@@ -11,28 +11,25 @@ export default Route.extend({
         .then(() => this.get('store').unloadAll())
         .then(() => this.transitionTo('sign-in'))
         .then(() => {
-          this.get('flashMessages').warning('You have been signed out.')
+          this.toast.info('You have been signed out.', 'Success', {preventDuplicates: false})
         })
         .catch(() => {
-          this.get('flashMessages')
-          .danger('There was a problem. Are you sure you\'re signed-in?')
+          this.toast.error('There was a problem. Are you sure you\'re signed-in?', 'Error', {preventDuplicates: false})
         })
     },
 
     error (reason) {
-      console.error(reason)
+      // console.error(reason)
 
       const unauthorized = reason.errors && reason.errors.some((error) =>
         error.status === '401'
       )
 
       if (unauthorized) {
-        this.get('flashMessages')
-          .danger('You must be authenticated to access this page.')
+        this.toast.error('You must be authenticated to access that page.', 'Error', {preventDuplicates: false})
         this.transitionTo('/sign-in')
       } else {
-        this.get('flashMessages')
-          .danger('There was a problem. Please try again.')
+        this.toast.error('There was a problem. Please try again.', 'Error', {preventDuplicates: false})
       }
 
       return false
