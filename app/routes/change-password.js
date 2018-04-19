@@ -42,6 +42,7 @@ export default Route.extend({
       }
     },
     cancelChanges () {
+      this.toast.info('Changes Discarded', 'Status', {preventDuplicates: false})
       this.transitionTo('application')
     },
     changePassword (passwords) {
