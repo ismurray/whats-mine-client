@@ -16,12 +16,10 @@ export default Route.extend({
         .then(() => this.get('auth').signIn(credentials))
         .then(() => this.transitionTo('application'))
         .then(() => {
-          this.get('flashMessages')
-            .success('Successfully signed-up! You have also been signed-in.')
+          this.toast.success('Signed-up! You have also been signed-in.', 'Success', {preventDuplicates: false})
         })
         .catch(() => {
-          this.get('flashMessages')
-            .danger('There was a problem. Please try again.')
+          this.toast.error('There was a problem. Please try again.', 'Error', {preventDuplicates: false})
         })
     }
   }
