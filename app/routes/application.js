@@ -19,10 +19,6 @@ export default Route.extend({
         })
     },
 
-    search (searchQuery) {
-      this.transitionTo('items.search', searchQuery)
-    },
-
     error (reason) {
       console.error(reason)
 

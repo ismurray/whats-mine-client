@@ -6,9 +6,7 @@
       <ul class="nav navbar-nav">
         {{#if isAuthenticated}}
         <li>{{#link-to "boxes"}}My Boxes{{/link-to}}</li>
-        <li><form {{action "search" searchQuery on="submit"}}>
-          {{input placeholder="Search My Items" value=searchQuery maxlength=50}}
-        </form></li>
+        <li>{{#link-to "items.search"}}Search Items{{/link-to}}</li>
         {{/if}}
       </ul>
       <ul class="nav navbar-nav navbar-right">
