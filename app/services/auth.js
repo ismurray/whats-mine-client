@@ -21,6 +21,12 @@ export default Service.extend({
 
   signUp (credentials) {
     console.log('credentials are', credentials)
+    // debugger
+    if (credentials.phone === undefined) {
+      credentials.phone = '___-___-____'
+    }
+    // debugger
+    console.log('now credentials.phone is', credentials.phone)
     return this.get('ajax').post('/sign-up', {
       data: {
         credentials: {

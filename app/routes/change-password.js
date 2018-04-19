@@ -18,8 +18,9 @@ export default Route.extend({
       console.log('in the route', newPhone)
       // make sure user entered a new number that is proper length and has no
       // underscores (which the phone-number add-on replaces empty spaces with)
+      // debugger
       if (newPhone.split('_').length === 1 &&
-          newPhone !== this.get('auth.credentials.phone') &&
+      //     newPhone !== this.get('auth.credentials.phone') &&
           newPhone.length === 12) {
         const data = {
           phone: newPhone,
@@ -36,13 +37,21 @@ export default Route.extend({
           .catch(() => {
             this.get('flashMessages')
             .danger('There was a problem. Please try again.')
+            this.get('model').rollbackAttributes()
+            console.log('first catch', this.get('model'))
           })
-      } else if (newPhone === this.get('auth.credentials.phone')) {
-        this.get('flashMessages')
-        .danger('You must enter a new number')
+        // },
+      // } else if (newPhone === this.get('auth.credentials.phone')) {
+      //   debugger
+      //   this.get('flashMessages')
+      //   .danger('You must enter a new number')
       } else {
         this.get('flashMessages')
         .danger('You must enter a full phone number.')
+        .then(() => {
+          this.get('model').rollbackAttributes()
+          console.log('first catch', this.get('model'))
+        })
       }
     },
     cancelChanges () {
