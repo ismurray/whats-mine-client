@@ -13,11 +13,15 @@ export default Route.extend({
       console.log('delete', item.get('name'))
       const box = item.get('box')
       item.destroyRecord()
+        .then((response) => {
+          this.toast.success('Item Deleted', 'Success', {preventDuplicates: false})
+          return response
+        })
         .then(() => this.transitionTo('boxes.box', box))
-        .catch(console.error)
+        .catch(() => this.toast.error('Error Deleting this Item', 'Failure', {preventDuplicates: false}))
     },
     sendMessage (item, permission) {
-      console.log('clicked message button', item)
+      const body = `Hi ${permission.get('user.email')}, ${this.get('auth.credentials.email')} sent a reminder about Item: '${item.get('name')}' in Box: '${item.get('box.name')}'!`
       const data = {
         twilio: {
           user_id: permission.get('user.id'),
@@ -27,6 +31,11 @@ export default Route.extend({
         }
       }
       this.get('auth').twilioMessage(data)
+        .then((response) => {
+          this.toast.success(body, 'Text Sent! Your message:', {preventDuplicates: false})
+          return response
+        })
+        .catch(() => this.toast.error(`${permission.get('user.email')} may not have a valid phone number listed.`, 'Text not sent', {preventDuplicates: false}))
     }
   }
 })
