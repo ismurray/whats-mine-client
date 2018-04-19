@@ -14,6 +14,7 @@ Router.map(function () {
   this.route('items', function () {
     this.route('item', {path: '/:item_id'})
     this.route('edit', {path: '/:item_id/edit'})
+    this.route('search', {path: '/search/:searchQuery'})
   })
   this.route('boxes', function () {
     this.route('box', {path: '/:box_id'})
