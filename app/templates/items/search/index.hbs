@@ -5,13 +5,7 @@
   {{#each model as |item|}}
     <h4>Item Name: {{#link-to "items.item" item}}{{item.name}}{{/link-to}}</h4>
     <ul>
-      <li>Value:
-      {{#if item.value}}
-      {{item.value}}
-      {{else}}
-      [None Listed]
-      {{/if}}
-      </li>
+      <li>Value: {{item.value}}</li>
       <li>Box Name: {{#link-to "boxes.box" item.box}}{{item.box.name}}{{/link-to}}</li>
     </ul>
   {{/each}}
