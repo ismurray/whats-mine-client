@@ -5,7 +5,7 @@
   <h4>{{#link-to "items.item" item}}Item Name: {{item.name}}{{/link-to}}</h4>
   <ul>
     <li>Value: {{item.value}}</li>
-    <li>Box: {{item.box.name}}</li>
+    <li>Box Name: {{#link-to "boxes.box" item.box}}{{item.box.name}}{{/link-to}}</li>
   </ul>
 {{/each}}
 </ul>
