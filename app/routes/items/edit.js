@@ -9,7 +9,12 @@ export default Route.extend({
   actions: {
     updateItem (item) {
       item.save()
-      .then((item) => this.transitionTo('/items/' + item.get('id')))
+        .then((response) => {
+          this.toast.success('Item Saved', 'Success', {preventDuplicates: false})
+          return response
+        })
+        .then((item) => this.transitionTo('/items/' + item.get('id')))
+        .catch(() => this.toast.error('Error Saving this Item', 'Failure', {preventDuplicates: false}))
     }
   }
 })

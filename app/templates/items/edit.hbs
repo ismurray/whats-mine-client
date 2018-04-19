@@ -5,6 +5,6 @@
 <h4>Item Name: {{input placeholder="Item Name" value=model.name maxlength=50}}</h4>
 <h4>Value: {{input placeholder="No Value Given" value=model.value type="number"}}</h4>
 {{else}}
-{{#link-to "boxes.box" model.box.id}}Back to {{model.box.name}}{{/link-to}}
+{{#link-to "boxes.box" model.box.id}}Up to {{model.box.name}}{{/link-to}}
 <h2>You must have write access for this Box to edit Items in it! Ask an authorized Box member for permission to edit Items in this Box.</h2>
 {{/if}}
