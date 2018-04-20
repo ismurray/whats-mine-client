@@ -1,8 +1,23 @@
 <h2>My Boxes</h2>
-{{#link-to "boxes.new"}}Create a new Box{{/link-to}}
-<ul>
 
+<div>
+  {{#link-to "boxes.new" class="item-detail"}}
+  <div class="col-lg-2 col-md-3 col-sm-4 text-center item-tile"
+  style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, .8)), url({{"http://res.cloudinary.com/ismurray/image/upload/v1524210594/new-box.png"}}); background-position: center; background-size: 120%; background-repeat: no-repeat">
+    <h3>
+        {{#link-to "boxes.new" class="item-detail"}}Create a new Box{{/link-to}}
+    </h3>
+  </div>
+{{/link-to}}
 {{#each model as |box|}}
-  <h4>{{#link-to "boxes.box" box}}{{box.name}}{{/link-to}}</h4>
-{{/each}}
-</ul>
+
+        {{#link-to "boxes.box" box class="item-detail"}}
+    <div class="col-lg-2 col-md-3 col-sm-4 text-center item-tile"
+    style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, .8)), url({{"http://res.cloudinary.com/ismurray/image/upload/v1524207439/monetary_treasure_closed-128.png"}}); background-position: center; background-size: 120%; background-repeat: no-repeat">
+          <h3>
+              {{#link-to "boxes.box" box class="item-detail"}}{{box.name}}{{/link-to}}
+          </h3>
+    </div>
+    {{/link-to}}
+  {{/each}}
+</div>

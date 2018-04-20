@@ -1,1 +1,28 @@
 @import "ember-bootstrap/bootstrap";
+
+@media (max-width: 768px) {
+  .item-tile {
+    padding: 10vh 2vw 2vh 2vw;
+    min-height: 30vh;
+  }
+}
+
+.item-tile {
+  color: white;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images-na.ssl-images-amazon.com/images/I/51Y0EYT9R6L.jpg');
+  background-position: center;
+  background-size: 120%;
+  border: 2px solid white;
+  padding: 10vh 1vw 2vh 1vw;
+  height: 40vh;
+  min-height: 200px;
+  transition: all .2s ease-in-out;
+  &:hover {
+    background-size: 140%;
+  }
+}
+
+.item-detail {
+  color: white;
+  text-decoration: none;
+}

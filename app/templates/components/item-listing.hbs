@@ -1,0 +1,26 @@
+<div>
+{{#if model.editable}}
+  {{#link-to "boxes.new" class="item-detail"}}
+  <div class="col-lg-2 col-md-3 col-sm-4 text-center item-tile"
+  style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, .8)), url({{"http://res.cloudinary.com/ismurray/image/upload/v1524211498/img_50183.png"}}); background-position: center; background-size: 120%; background-repeat: no-repeat">
+    <h3>
+        {{#link-to "boxes.new-item" model class="item-detail"}}Create a new Item{{/link-to}}
+    </h3>
+  </div>
+{{/link-to}}
+{{/if}}
+  {{#each model.items as |item|}}
+
+        {{#link-to "items.item" item class="item-detail"}}
+    <div class="col-lg-2 col-md-3 col-sm-4 text-center item-tile"
+    style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, .8)), url({{"http://res.cloudinary.com/ismurray/image/upload/v1524209458/minerals_red_stone-128.png"}}); background-position: center; background-size: 120%; background-repeat: no-repeat">
+          <h3>
+              {{#link-to "items.item" item class="item-detail"}}{{item.name}}{{/link-to}}
+          </h3>
+            <h4>
+            Value: {{item.value}}
+          </h4>
+    </div>
+    {{/link-to}}
+  {{/each}}
+</div>
