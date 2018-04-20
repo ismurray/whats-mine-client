@@ -8,6 +8,9 @@ export default Route.extend({
     const id = params.item_id
     return this.get('store').findRecord('item', id)
   },
+  afterModel (item) {
+    item.rollbackAttributes()
+  },
   actions: {
     deleteItem (item) {
       console.log('delete', item.get('name'))

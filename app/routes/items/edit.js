@@ -15,6 +15,12 @@ export default Route.extend({
         })
         .then((item) => this.transitionTo('/items/' + item.get('id')))
         .catch(() => this.toast.error('Error Saving this Item', 'Failure', {preventDuplicates: false}))
+    },
+    cancelChanges (item) {
+      console.log('cancel!')
+      item.rollbackAttributes()
+      this.transitionTo('items.item', item.get('id'))
+      this.toast.info('Changes discarded', 'Status', {preventDuplicates: false})
     }
   }
 })

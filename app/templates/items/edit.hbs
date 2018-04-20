@@ -1,9 +1,8 @@
 {{#if model.box.editable}}
 <h2>Item Details:</h2>
-<button {{action "updateItem" model}}>Save Changes</button>
-{{#link-to "items.item" model.id tagName="button"}} Cancel{{/link-to}}
-<h4>Item Name: {{input placeholder="Item Name" value=model.name maxlength=50}}</h4>
-<h4>Value: {{input placeholder="No Value Given" value=model.value type="number"}}</h4>
+{{edit-item-form model=model
+                 cancel="cancelChanges"
+                 saveItem="updateItem"}}
 {{else}}
 {{#link-to "boxes.box" model.box.id}}Up to {{model.box.name}}{{/link-to}}
 <h2>You must have write access for this Box to edit Items in it! Ask an authorized Box member for permission to edit Items in this Box.</h2>
