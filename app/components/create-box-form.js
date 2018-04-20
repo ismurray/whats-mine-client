@@ -8,7 +8,7 @@ export default Component.extend({
   },
   actions: {
     createBox () {
-      console.log('new name is ', this.get('newBox.name'))
+      // console.log('new name is ', this.get('newBox.name'))
       this.sendAction('createBox', this.get('newBox'))
     }
   }

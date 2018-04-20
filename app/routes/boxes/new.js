@@ -3,7 +3,7 @@ import Route from '@ember/routing/route'
 export default Route.extend({
   actions: {
     createNewBox (boxPojo) {
-      console.log('in the route babyyy')
+      // console.log('in the route babyyy')
       const box = this.get('store').createRecord('box', boxPojo)
       box.save()
         .then((response) => {

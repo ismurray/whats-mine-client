@@ -10,7 +10,7 @@ export default Route.extend({
   },
   actions: {
     deleteBox (box) {
-      console.log('delete', box.get('name'))
+      // console.log('delete', box.get('name'))
       box.destroyRecord()
         .then((response) => {
           this.toast.success('Box Successfully Removed', 'Success', {preventDuplicates: false})

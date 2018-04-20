@@ -10,10 +10,10 @@ export default Component.extend({
   },
   actions: {
     addUserToBox (box) {
-      console.log('writeAccess is', this.get('newUsersBox.writeAccess'))
-      console.log('email is', this.get('newUsersBox.email'))
+      // console.log('writeAccess is', this.get('newUsersBox.writeAccess'))
+      // console.log('email is', this.get('newUsersBox.email'))
       this.set('newUsersBox.box_id', box.get('id'))
-      console.log('box_id is', this.get('newUsersBox.box_id'))
+      // console.log('box_id is', this.get('newUsersBox.box_id'))
       this.sendAction('addUserToBox', this.get('newUsersBox'))
     }
   }

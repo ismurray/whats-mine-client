@@ -15,7 +15,7 @@ export default Route.extend({
 
   actions: {
     updatePhone (newPhone) {
-      console.log('in the route', newPhone)
+      // console.log('in the route', newPhone)
       // make sure user entered a new number that is proper length and has no
       // underscores (which the phone-number add-on replaces empty spaces with)
       // debugger
@@ -38,7 +38,7 @@ export default Route.extend({
       } else {
         this.toast.error('You must enter a full phone number.', 'Error', {preventDuplicates: false})
         this.get('model').rollbackAttributes()
-        console.log('first catch', this.get('model'))
+        // console.log('first catch', this.get('model'))
       }
     },
     cancelChanges () {

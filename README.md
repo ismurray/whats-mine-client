@@ -10,8 +10,10 @@ SMS reminder messages to each other about items in their shared boxes.
 - Deployed API: https://whats-mine-api.herokuapp.com/
 - GitHub Repo: https://github.com/ismurray/whats-mine-api
 
+![alt text](https://i.imgur.com/Ofm2UHC.png "Live Site Screenshot")
+
 ## How to use WhatsMine
-When you sign up for your WhatsMine account, including your phone number is
+When you sign up for your WhatsMine account, registering your phone number is
 optional, but including it will allow the people you share items with to message
 you via SMS. If you change your mind, you can always change the phone number
 tied to your account by going to the Account page.
@@ -48,10 +50,10 @@ they're running low on essentials, like eggs or beer.
 
 ## Planning and Development:
 
-# MVP Wireframe:
+### Minimum Viable Product Wireframe:
 ![alt text](https://i.imgur.com/1kPlv99.jpg "MVP Wireframe")
 
-# MVP User Stories
+### Minimum Viable Product User Stories
 As a user, I should be able to:
 - create an account
 - login to my account
@@ -63,10 +65,10 @@ As a user, I should be able to:
 - Change an item
 
 
-# Stretch Goal Wireframe:
+### Stretch Goal Wireframe:
 ![alt text](https://i.imgur.com/28Zms7x.jpg "Stretch Wireframe")
 
-# Stretch User Stories
+### Stretch User Stories
 As a user, I should be able to:
 - create an account
 - login to my account
@@ -94,6 +96,11 @@ As a user, I should be able to:
 * Atom
 * Webpack
 * Twilio
+
+## Installation
+1. Fork and clone this repository
+2. Install dependencies with `npm install`
+
 
 ## Future Iterations
 - Sorted categories for Boxes, so you can see which ones are private, which ones

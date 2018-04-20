@@ -6,7 +6,7 @@ export default Route.extend({
 
   model: function (params) {
     const id = params.box_id
-    console.log('id is ', id)
+    // console.log('id is ', id)
     return this.get('store').findRecord('box', id)
   },
   actions: {
@@ -14,7 +14,7 @@ export default Route.extend({
       box.save()
         .then((boxResponse) => {
           this.toast.success('Box Name Saved', 'Success', {preventDuplicates: false})
-          console.log('response is ', boxResponse.get('name'))
+          // console.log('response is ', boxResponse.get('name'))
           return boxResponse
         })
         .then((boxResponse) => this.transitionTo('/boxes/' + boxResponse.get('id')))
@@ -24,7 +24,7 @@ export default Route.extend({
         })
     },
     cancelChanges (box) {
-      console.log('cancel!')
+      // console.log('cancel!')
       box.rollbackAttributes()
       this.transitionTo('boxes.box', box.get('id'))
       this.toast.info('Changes discarded', 'Status', {preventDuplicates: false})

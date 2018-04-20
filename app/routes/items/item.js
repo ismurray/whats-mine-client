@@ -13,7 +13,7 @@ export default Route.extend({
   },
   actions: {
     deleteItem (item) {
-      console.log('delete', item.get('name'))
+      // console.log('delete', item.get('name'))
       const box = item.get('box')
       item.destroyRecord()
         .then((response) => {

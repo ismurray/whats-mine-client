@@ -6,7 +6,7 @@ export default Component.extend({
 
   actions: {
     submit () {
-      console.log(this.get('phone'))
+      // console.log(this.get('phone'))
       this.sendAction('submit', this.get('phone'))
     },
 
