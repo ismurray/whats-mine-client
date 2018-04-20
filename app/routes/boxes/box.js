@@ -5,9 +5,6 @@ export default Route.extend({
     const id = params.box_id
     return this.get('store').findRecord('box', id)
   },
-  afterModel (box) {
-    box.rollbackAttributes()
-  },
   actions: {
     deleteBox (box) {
       // console.log('delete', box.get('name'))
