@@ -29,20 +29,20 @@ export default Route.extend({
             this.get('auth.credentials').set('phone', result.user.phone)
           })
           .then(() => {
-            this.toast.success('Phone number saved', 'Success', {preventDuplicates: false})
+            this.toast.success('Phone number saved', 'Success')
           })
           .catch(() => {
-            this.toast.error('There was a problem. Please try again.', 'Error', {preventDuplicates: false})
+            this.toast.error('There was a problem. Please try again.', 'Error')
             this.get('model').rollbackAttributes()
           })
       } else {
-        this.toast.error('You must enter a full phone number.', 'Error', {preventDuplicates: false})
+        this.toast.error('You must enter a full phone number.', 'Error')
         this.get('model').rollbackAttributes()
         // console.log('first catch', this.get('model'))
       }
     },
     cancelChanges () {
-      this.toast.info('Changes Discarded', 'Status', {preventDuplicates: false})
+      this.toast.info('Changes Discarded', 'Status')
       this.transitionTo('application')
     },
     changePassword (passwords) {
@@ -51,16 +51,16 @@ export default Route.extend({
         .then(() => this.get('auth').signOut())
         .then(() => this.transitionTo('sign-in'))
         .then(() => {
-          this.toast.success('Changed your password!', 'Success', {preventDuplicates: false})
+          this.toast.success('Changed your password!', 'Success')
         })
         .then(() => {
-          this.toast.info('You have been signed out.', 'Status', {preventDuplicates: false})
+          this.toast.info('You have been signed out.', 'Status')
         })
         .catch(() => {
-          this.toast.error('There was a problem. Please try again.', 'Error', {preventDuplicates: false})
+          this.toast.error('There was a problem. Please try again.', 'Error')
         })
       } else {
-        this.toast.warning('Your new passwords must match.', 'Error', {preventDuplicates: false})
+        this.toast.warning('Your new passwords must match.', 'Error')
       }
     }
   }

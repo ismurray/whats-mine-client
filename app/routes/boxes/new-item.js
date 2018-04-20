@@ -12,12 +12,12 @@ export default Route.extend({
       const item = this.get('store').createRecord('item', itemPojo)
       item.save()
         .then((item) => {
-          this.toast.success('Item Successfully Created', 'Success', {preventDuplicates: false})
+          this.toast.success('Item Successfully Created', 'Success')
           return item
         })
         // transition to the item view of the newly created item
         .then((item) => this.transitionTo('/items/' + item.get('id')))
-        .catch(() => this.toast.error('Error Creating an Item', 'Failure', {preventDuplicates: false}))
+        .catch(() => this.toast.error('Error Creating an Item', 'Failure'))
     }
   }
 })

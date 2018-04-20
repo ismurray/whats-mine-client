@@ -10,7 +10,7 @@ export default Component.extend({
     const model = this.get('model')
     if (model.get('hasDirtyAttributes')) {
       this.get('model').rollbackAttributes()
-      this.toast.info('Changes discarded', 'Status', {preventDuplicates: false})
+      this.toast.info('Changes discarded', 'Status')
     }
   },
   actions: {

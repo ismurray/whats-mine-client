@@ -7,12 +7,12 @@ export default Route.extend({
       const box = this.get('store').createRecord('box', boxPojo)
       box.save()
         .then((response) => {
-          this.toast.success('Box Created', 'Success', {preventDuplicates: false})
+          this.toast.success('Box Created', 'Success')
           return response
         })
         // transition to the box view of the newly created box
         .then((box) => this.transitionTo('/boxes/' + box.get('id')))
-        .catch(() => this.toast.error('Error Creating this Box', 'Failure', {preventDuplicates: false}))
+        .catch(() => this.toast.error('Error Creating this Box', 'Failure'))
     }
   }
 })

@@ -14,9 +14,9 @@ export default Route.extend({
     signIn (credentials) {
       return this.get('auth').signIn(credentials)
         .then(() => this.transitionTo('application'))
-        .then(() => this.toast.success('Thanks for signing in!', 'Success', {preventDuplicates: false}))
+        .then(() => this.toast.success('Thanks for signing in!', 'Success'))
         .catch(() => {
-          this.toast.error('There was a problem. Please try again.', 'Error', {preventDuplicates: false})
+          this.toast.error('There was a problem. Please try again.', 'Error')
         })
     }
   }

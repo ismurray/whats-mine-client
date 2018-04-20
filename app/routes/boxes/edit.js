@@ -13,13 +13,13 @@ export default Route.extend({
     updateBox (box) {
       box.save()
         .then((boxResponse) => {
-          this.toast.success('Box Name Saved', 'Success', {preventDuplicates: false})
+          this.toast.success('Box Name Saved', 'Success')
           // console.log('response is ', boxResponse.get('name'))
           return boxResponse
         })
         .then((boxResponse) => this.transitionTo('/boxes/' + boxResponse.get('id')))
         .catch((boxResponse) => {
-          this.toast.error('Error Renaming the Box', 'Failure', {preventDuplicates: false})
+          this.toast.error('Error Renaming the Box', 'Failure')
           box.rollbackAttributes()
         })
     },
@@ -27,33 +27,33 @@ export default Route.extend({
       // console.log('cancel!')
       box.rollbackAttributes()
       this.transitionTo('boxes.box', box.get('id'))
-      this.toast.info('Changes discarded', 'Status', {preventDuplicates: false})
+      this.toast.info('Changes discarded', 'Status')
     },
     updatePermission (permission) {
       permission.save()
         .then((response) => {
-          this.toast.success('Box Permission Saved', 'Success', {preventDuplicates: false})
+          this.toast.success('Box Permission Saved', 'Success')
           return response
         })
-        .catch(() => this.toast.error('Error Saving Box Permission', 'Failure', {preventDuplicates: false}))
+        .catch(() => this.toast.error('Error Saving Box Permission', 'Failure'))
     },
     deletePermission (permission) {
       permission.destroyRecord()
         .then((response) => {
-          this.toast.success('Box Permission Deleted', 'Success', {preventDuplicates: false})
+          this.toast.success('Box Permission Deleted', 'Success')
           return response
         })
-        .catch(() => this.toast.error('Error Deleting Box Permission', 'Failure', {preventDuplicates: false}))
+        .catch(() => this.toast.error('Error Deleting Box Permission', 'Failure'))
     },
     createPermission (usersBoxPojo) {
       const boxId = usersBoxPojo.box_id
       return this.get('auth').createPermission(usersBoxPojo)
               .then(() => this.store.findRecord('box', boxId, { reload: true }))
               .then((response) => {
-                this.toast.success('User given access to this Box', 'Success', {preventDuplicates: false})
+                this.toast.success('User given access to this Box', 'Success')
                 return response
               })
-              .catch(() => this.toast.error('Error Sharing Box with User', 'Failure', {preventDuplicates: false}))
+              .catch(() => this.toast.error('Error Sharing Box with User', 'Failure'))
     }
   }
 })

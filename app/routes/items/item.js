@@ -17,11 +17,11 @@ export default Route.extend({
       const box = item.get('box')
       item.destroyRecord()
         .then((response) => {
-          this.toast.success('Item Deleted', 'Success', {preventDuplicates: false})
+          this.toast.success('Item Deleted', 'Success')
           return response
         })
         .then(() => this.transitionTo('boxes.box', box))
-        .catch(() => this.toast.error('Error Deleting this Item', 'Failure', {preventDuplicates: false}))
+        .catch(() => this.toast.error('Error Deleting this Item', 'Failure'))
     },
     sendMessage (item, permission) {
       const body = `Hi ${permission.get('user.email')}, ${this.get('auth.credentials.email')} sent a reminder about Item: '${item.get('name')}' in Box: '${item.get('box.name')}'!`
@@ -35,10 +35,10 @@ export default Route.extend({
       }
       this.get('auth').twilioMessage(data)
         .then((response) => {
-          this.toast.success(body, 'Text Sent! Your message:', {preventDuplicates: false})
+          this.toast.success(body, 'Text Sent! Your message:')
           return response
         })
-        .catch(() => this.toast.error(`${permission.get('user.email')} may not have a valid phone number listed.`, 'Text not sent', {preventDuplicates: false}))
+        .catch(() => this.toast.error(`${permission.get('user.email')} may not have a valid phone number listed.`, 'Text not sent'))
     }
   }
 })

@@ -10,11 +10,11 @@ export default Route.extend({
       // console.log('delete', box.get('name'))
       box.destroyRecord()
         .then((response) => {
-          this.toast.success('Box Successfully Removed', 'Success', {preventDuplicates: false})
+          this.toast.success('Box Successfully Removed', 'Success')
           return response
         })
         .then(() => this.transitionTo('boxes'))
-        .catch(() => this.toast.error('Error Removing the Box', 'Failure', {preventDuplicates: false}))
+        .catch(() => this.toast.error('Error Removing the Box', 'Failure'))
     },
     editBoxView (box) {
       this.transitionTo('/boxes/' + box.get('id') + '/edit')

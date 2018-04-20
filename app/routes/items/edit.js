@@ -10,17 +10,17 @@ export default Route.extend({
     updateItem (item) {
       item.save()
         .then((response) => {
-          this.toast.success('Item Saved', 'Success', {preventDuplicates: false})
+          this.toast.success('Item Saved', 'Success')
           return response
         })
         .then((item) => this.transitionTo('/items/' + item.get('id')))
-        .catch(() => this.toast.error('Error Saving this Item', 'Failure', {preventDuplicates: false}))
+        .catch(() => this.toast.error('Error Saving this Item', 'Failure'))
     },
     cancelChanges (item) {
       // console.log('cancel!')
       item.rollbackAttributes()
       this.transitionTo('items.item', item.get('id'))
-      this.toast.info('Changes discarded', 'Status', {preventDuplicates: false})
+      this.toast.info('Changes discarded', 'Status')
     }
   }
 })

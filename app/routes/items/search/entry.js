@@ -9,9 +9,9 @@ export default Route.extend({
               // if there are no results, set model to false, so the hbs file renders differently
               if (results.get('lastObject') === undefined) {
                 results = false
-                this.toast.info('No Items found that match your search', 'Failure', {preventDuplicates: false})
+                this.toast.info('No Items found that match your search', 'Failure')
               } else {
-                this.toast.success('Items Found!', 'Success', {preventDuplicates: false})
+                this.toast.success('Items Found!', 'Success')
               }
               return results
             })

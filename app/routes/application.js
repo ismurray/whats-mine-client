@@ -11,10 +11,10 @@ export default Route.extend({
         .then(() => this.get('store').unloadAll())
         .then(() => this.transitionTo('sign-in'))
         .then(() => {
-          this.toast.info('You have been signed out.', 'Success', {preventDuplicates: false})
+          this.toast.info('You have been signed out.', 'Success')
         })
         .catch(() => {
-          this.toast.error('There was a problem. Are you sure you\'re signed-in?', 'Error', {preventDuplicates: false})
+          this.toast.error('There was a problem. Are you sure you\'re signed-in?', 'Error')
         })
     },
 
@@ -26,10 +26,10 @@ export default Route.extend({
       )
 
       if (unauthorized) {
-        this.toast.error('You must be authenticated to access that page.', 'Error', {preventDuplicates: false})
+        this.toast.error('You must be authenticated to access that page.', 'Error')
         this.transitionTo('/sign-in')
       } else {
-        this.toast.error('There was a problem. Please try again.', 'Error', {preventDuplicates: false})
+        this.toast.error('There was a problem. Please try again.', 'Error')
       }
 
       return false
