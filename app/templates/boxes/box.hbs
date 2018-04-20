@@ -4,7 +4,7 @@
 {{#link-to "boxes.edit" model.id tagName="button"}}Edit Box<{{/link-to}}
 <button {{action "deleteBox" model}}>Delete this Box</button>
 {{else}}
-<button {{action "deleteBox" model}}>Remove this Box from your list</button>
+<button {{action "removeBoxFromReader" model}}>Remove this Box from your list</button>
 {{/if}}
 
 <h4>Box Name: {{model.name}}</h4>
@@ -13,8 +13,9 @@
   {{#each model.permissions as |permission|}}
     <li>
       {{permission.user.email}}
-      ({{input type="checkbox" name="writeAccess" disabled=true checked=permission.writeAccess}}
-      Write Access)
+      {{#if permission.writeAccess}}
+      (Admin)
+      {{/if}}
     </li>
   {{/each}}
 </ul>

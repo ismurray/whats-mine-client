@@ -14,7 +14,8 @@
     <button {{action "sendMessage" model permission}}>Send Message</button>
     {{/if}}
     {{permission.user.email}}
-    ({{input type="checkbox" name="writeAccess" disabled=true checked=permission.writeAccess}}
-    Write Access)
+    {{#if permission.writeAccess}}
+    (Admin)
+    {{/if}}
   </li>
 {{/each}}

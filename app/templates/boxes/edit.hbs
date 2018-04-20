@@ -11,7 +11,7 @@
     {{#each model.permissions as |permission|}}
       <li>{{permission.user.email}}
         ({{input type="checkbox" name="writeAccess" checked=permission.writeAccess}}
-        Write Access)
+        Admin)
         <button {{action "updatePermission" permission}}>Save Permission</button>
         <button {{action "deletePermission" permission}}>Delete Permission</button>
       </li>
@@ -21,5 +21,5 @@
   {{invite-users-box box=model
                      addUserToBox="createPermission"}}
 {{else}}
-<h2>You must have write access for this Box to edit it! Ask an authorized Box member for permission to edit this Box.</h2>
+<h2>You must be an Admin for this Box to edit it! Ask an authorized Box member for permission to edit this Box.</h2>
 {{/if}}

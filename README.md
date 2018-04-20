@@ -32,16 +32,16 @@ the mix! Inside one of your boxes, click the 'Edit' button to go to the Box Edit
 page. In addition to changing the name of your box, you can share your box with
 other users. To do that, enter the username of someone you know into the form at
 the bottom of the page.
-If you leave the `Give Write Access` box unchecked, the
+If you leave the `Make Admin` box unchecked, the
 user will only have read-access to the box, meaning they'll be able to see it
 and all of it's contents (and remove the box from their list if they want), but
 they won't be able to create/edit/delete any items, and they won't be able to
 add or change any User permissions. They also won't be able to send any
 Item-messages, but they will be able to receive them.
-If you do chek the `Give Write Access` box, keep in mind that the user you add
+If you do chek the `Make Admin` box, keep in mind that the user you add
 will share full administrative control of the box. They'll be able to change and
 delete the box, add/change/delete items, add and remove user permissions, and
-message other members of the box. So only give write access to users you trust!
+message other members of the box. So only give Admin status to users you trust!
 
 A great use for WhatsMine is for roommates who want to keep track of who owns
 what, and what's for sharing. The built in messaging service is a great way for
