@@ -6,7 +6,7 @@ export default Route.extend({
     return this.get('store').findRecord('box', id)
   },
   afterModel (box) {
-    box.rollbackAttributes
+    box.rollbackAttributes()
   },
   actions: {
     deleteBox (box) {
