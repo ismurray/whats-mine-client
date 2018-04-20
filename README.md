@@ -4,11 +4,12 @@ organized into shareable boxes. Users can add and remove each other from boxes,
 with variable levels of resource control (read-only, admin). Users can also send
 SMS reminder messages to each other about items in their shared boxes.
 
-- Deployed Site: https://ismurray.github.io/whats-mine-client/
+- [Deployed Site](https://ismurray.github.io/whats-mine-client/)
 
 ## WhatsMine API
-- Deployed API: https://whats-mine-api.herokuapp.com/
-- GitHub Repo: https://github.com/ismurray/whats-mine-api
+- [Deployed API](https://whats-mine-api.herokuapp.com/)
+- [GitHub Repo](https://github.com/ismurray/whats-mine-api)
+
 
 ![alt text](https://i.imgur.com/Ofm2UHC.png "Live Site Screenshot")
 
