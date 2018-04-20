@@ -12,12 +12,22 @@ export default Route.extend({
   actions: {
     updateBox (box) {
       box.save()
-        .then((response) => {
+        .then((boxResponse) => {
           this.toast.success('Box Name Saved', 'Success', {preventDuplicates: false})
-          return response
+          console.log('response is ', boxResponse.get('name'))
+          return boxResponse
         })
-        .then((box) => this.transitionTo('/boxes/' + box.get('id')))
-        .catch(() => this.toast.error('Error Renaming the Box', 'Failure', {preventDuplicates: false}))
+        .then((boxResponse) => this.transitionTo('/boxes/' + boxResponse.get('id')))
+        .catch((boxResponse) => {
+          this.toast.error('Error Renaming the Box', 'Failure', {preventDuplicates: false})
+          box.rollbackAttributes()
+        })
+    },
+    cancelChanges (box) {
+      console.log('cancel!')
+      box.rollbackAttributes()
+      this.transitionTo('boxes.box', box.get('id'))
+      this.toast.info('Changes discarded', 'Status', {preventDuplicates: false})
     },
     updatePermission (permission) {
       permission.save()

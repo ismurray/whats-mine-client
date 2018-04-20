@@ -1,0 +1,6 @@
+<form>
+<h4>Box Name: {{input placeholder="Box Name" value=model.name maxlength=50}}</h4>
+
+<button {{action "saveBox" model}}>Save Name</button>
+<button {{action "cancel" model}}>Cancel</button>
+</form>

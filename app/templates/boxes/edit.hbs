@@ -1,11 +1,11 @@
-{{#link-to "boxes"}}Up to My Boxes{{/link-to}}
+{{!-- {{#link-to "boxes"}}Up to My Boxes{{/link-to}} --}}
 <p>{{#link-to "boxes.box" model.id}} Up to {{model.name}}{{/link-to}}</p>
 {{#if model.editable}}
   <h2>Box Details:</h2>
+{{edit-box-name model=model
+                cancel="cancelChanges"
+                saveBox="updateBox"}}
 
-  <h4>Box Name: {{input placeholder="Box Name" value=model.name maxlength=50}}</h4>
-  <button {{action "updateBox" model}}>Save Name</button>
-  {{#link-to "boxes.box" model.id tagName="button"}} Cancel{{/link-to}}
   <h5>Users who are sharing this Box:</h5>
   <ul>
     {{#each model.permissions as |permission|}}
@@ -19,7 +19,7 @@
   </ul>
   <h5>Share this Box with another User:</h5>
   {{invite-users-box box=model
-                     addUserToBox='createPermission'}}
+                     addUserToBox="createPermission"}}
 {{else}}
 <h2>You must have write access for this Box to edit it! Ask an authorized Box member for permission to edit this Box.</h2>
 {{/if}}
