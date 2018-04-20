@@ -7,7 +7,11 @@ export default Component.extend({
     // the next line insures that we inherit all of the default behavior of this
     // func instead of overwriting it all
     this._super(...arguments)
-    this.get('model').rollbackAttributes()
+    const model = this.get('model')
+    if (model.get('hasDirtyAttributes')) {
+      this.get('model').rollbackAttributes()
+      this.toast.info('Changes discarded', 'Status', {preventDuplicates: false})
+    }
   },
   actions: {
     saveBox (box) {
