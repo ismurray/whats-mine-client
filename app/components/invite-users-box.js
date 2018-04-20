@@ -15,6 +15,11 @@ export default Component.extend({
       this.set('newUsersBox.box_id', box.get('id'))
       // console.log('box_id is', this.get('newUsersBox.box_id'))
       this.sendAction('addUserToBox', this.get('newUsersBox'))
+      this.set('newUsersBox', {
+        email: null,
+        box_id: null,
+        writeAccess: false
+      })
     }
   }
 })
