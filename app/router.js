@@ -23,6 +23,7 @@ Router.map(function () {
     this.route('new')
     this.route('edit', {path: '/:box_id/edit'})
   })
+  this.route('getting-started');
 })
 
 export default Router

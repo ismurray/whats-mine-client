@@ -7,6 +7,7 @@
         {{#if isAuthenticated}}
         <li>{{#link-to "boxes"}}My Boxes{{/link-to}}</li>
         <li>{{#link-to "items.search"}}Search Items{{/link-to}}</li>
+        <li>{{#link-to "getting-started"}}Getting Started?{{/link-to}}</li>
         {{/if}}
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -23,10 +24,6 @@
 </nav>
 
 <h1>WhatsMine</h1>
-
-{{#each flashMessages.queue as |flash|}}
-  {{flash-message flash=flash}}
-{{/each}}
 
 <div class="col-md-8 col-md-offset-2">
   {{outlet}}
