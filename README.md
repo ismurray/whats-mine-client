@@ -39,7 +39,7 @@ and all of it's contents (and remove the box from their list if they want), but
 they won't be able to create/edit/delete any items, and they won't be able to
 add or change any User permissions. They also won't be able to send any
 Item-messages, but they will be able to receive them.
-If you do chek the `Make Admin` box, keep in mind that the user you add
+If you do check the `Give Write Access` box, keep in mind that the user you add
 will share full administrative control of the box. They'll be able to change and
 delete the box, add/change/delete items, add and remove user permissions, and
 message other members of the box. So only give Admin status to users you trust!
